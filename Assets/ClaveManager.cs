@@ -6,7 +6,8 @@ public class ClaveManager : MonoBehaviour
 {
     public TMP_InputField inputClave;
     public TextMeshProUGUI txtMensaje;
-
+    public TMP_InputField inputUsuario;
+    string usuario = "MartoBiosca";
     string clave = "tic2025";
     // Start is called before the first frame update
     void Start()
@@ -17,14 +18,17 @@ public class ClaveManager : MonoBehaviour
     public void ComprobarClaveIngresada()
     {
         string ClaveIngresada = inputClave.text;
-        if (ClaveIngresada != clave)
+        string UsuarioIngresado = inputUsuario.text;
+        if (ClaveIngresada != clave || UsuarioIngresado != usuario)
         {
             txtMensaje.text = "Acceso denegado";
             inputClave.text = "";
         }
-        else
+        else if (ClaveIngresada == clave && UsuarioIngresado == usuario)
         {
-            txtMensaje.text = "Bienvenido";
+            txtMensaje.text = " Bienvenido";
+
         }
+
     }
 }
